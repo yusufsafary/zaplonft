@@ -66,8 +66,8 @@ export default function MintPanel() {
               <img src="/zaplo-art.webp" alt="ZAPLO — a rack of five charge cells" className="w-full max-w-full h-auto border border-steel/60 bg-black" decoding="async" />
               <div className="flex items-baseline justify-between mt-6">
                 <span className="label text-[11px] text-ash">Cells struck</span>
-                <span className="label text-[11px]" style={{ color: !live ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>
-                  {!live ? "DEPLOYING" : open ? "MINT OPEN" : "COMING SOON"}
+                <span className="label text-[11px]" style={{ color: !live || open === null ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>
+                  {!live ? "DEPLOYING" : open === null ? "SYNCING" : open ? "MINT LIVE" : "COMING SOON"}
                 </span>
               </div>
               <div ref={ref}>

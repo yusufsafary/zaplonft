@@ -9,7 +9,7 @@ export const SEL = {
   paidMintedBy: "0x80f231fb",
 } as const;
 
-const RPCS = [CONFIG.network.rpcUrl, "https://bsc-dataseed.binance.org/", "https://bsc-dataseed-public.bnbchain.org/"];
+const RPCS = [CONFIG.network.rpcUrl, "https://bsc-rpc.publicnode.com", "https://bsc-dataseed.binance.org"];
 
 /** eth_call read-only lewat RPC publik; null kalau semua RPC gagal. */
 export async function readContract(to: string, data: string): Promise<bigint | null> {

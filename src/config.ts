@@ -64,7 +64,7 @@ export const CONFIG = {
     shortName: "BSC",
     chainId: 56,
     chainIdHex: "0x38",
-    rpcUrl: "https://bsc-dataseed.binance.org/",
+    rpcUrl: "https://bsc-dataseed-public.bnbchain.org/",
     explorer: "https://bscscan.com",
     currency: { name: "BNB", symbol: "BNB", decimals: 18 },
   },
@@ -81,7 +81,7 @@ export const CONFIG = {
     selectors: {
       mint: "0xa0712d68", // mint(uint256)
       balanceOf: "0x70a08231", // balanceOf(address)
-      totalSupply: "0x18160ddd", // totalSupply()
+      totalSupply: "0xa2309ff8", // totalMinted() — kontrak ZAPLO tidak punya totalSupply()
       isWhitelisted: "0x3af32abf", // isWhitelisted(address)
       remaining: "0xb399b0bc", // remaining(address)
       maxPerWallet: "0x453c2310", // maxPerWallet()

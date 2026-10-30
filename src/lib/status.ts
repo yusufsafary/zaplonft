@@ -20,7 +20,7 @@ export function statusLabel(s: MintStatus): string {
     ? "MINT OPENS · 11:30 UTC"
     : s === "live"
       ? deployed
-        ? "MINT OPEN"
+        ? "MINT LIVE"
         : "MINT OPENING"
       : "MINT CLOSED";
 }

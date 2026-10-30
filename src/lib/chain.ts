@@ -140,8 +140,8 @@ export async function ensureChain(): Promise<"ok" | "switched" | "failed"> {
 /* ------------------------------------------------------------------ */
 const RPCS = [
   CONFIG.network.rpcUrl,
-  "https://bsc-dataseed1.defibit.io/",
-  "https://bsc.publicnode.com",
+  "https://bsc-rpc.publicnode.com",
+  "https://bsc-dataseed.binance.org",
 ];
 
 export async function rpc<T = any>(method: string, params: unknown[]): Promise<T> {
@@ -184,7 +184,9 @@ export async function readTotalSupply(): Promise<number | null> {
   if (!isLive) return null;
   try {
     const out = await ethCall(CONFIG.contract.selectors.totalSupply);
-    return parseInt(out, 16);
+    if (!out || out === "0x") return null;
+    const n = parseInt(out, 16);
+    return Number.isFinite(n) ? n : null;
   } catch {
     return null;
   }
