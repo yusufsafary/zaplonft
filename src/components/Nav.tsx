@@ -5,7 +5,7 @@ import { getMintStatus, statusLabel, statusTone } from "@/lib/status";
 export default function Nav() {
   const status = getMintStatus();
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-steel/60 bg-ink/85 backdrop-blur-md">
+    <header className="fixed top-0 inset-x-0 z-50 border-b border-steel/60 bg-ink/95 lg:bg-ink/85 lg:backdrop-blur-md">
       <div className="mx-auto flex h-[64px] max-w-[1400px] items-center gap-6 px-4 md:px-8">
         <a href="#top" className="flex items-center gap-3 shrink-0">
           <span className="grid size-9 place-items-center rounded-[7px] bg-volt text-ink">

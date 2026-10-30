@@ -405,3 +405,24 @@ details > summary::-webkit-details-marker {
     clip-path: none;
   }
 }
+
+/* ---------- mobile smoothness ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+.field {
+  font-size: 16px; /* cegah auto-zoom iOS saat input fokus */
+}
+img {
+  -webkit-user-drag: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .pulse-dot,
+  .arc-dash {
+    animation: none !important;
+  }
+  .reveal-mask {
+    transition: none;
+  }
+}

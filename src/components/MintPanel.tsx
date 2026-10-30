@@ -63,7 +63,7 @@ export default function MintPanel() {
         <div className="grid lg:grid-cols-[380px_1fr] gap-4">
           <Reveal>
             <div className="border border-steel/70 bg-ink p-6 h-full flex flex-col">
-              <img src="/zaplo-art.webp" alt="ZAPLO — a rack of five charge cells" className="w-full border border-steel/60 bg-black" />
+              <img src="/zaplo-art.webp" alt="ZAPLO — a rack of five charge cells" className="w-full border border-steel/60 bg-black" decoding="async" />
               <div className="flex items-baseline justify-between mt-6">
                 <span className="label text-[11px] text-ash">Cells struck</span>
                 <span className="label text-[11px]" style={{ color: !live ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>
