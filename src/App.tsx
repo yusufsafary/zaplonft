@@ -6,7 +6,7 @@ import Idea from "@/components/Idea";
 import Tiers from "@/components/Tiers";
 import Arc from "@/components/Arc";
 import Agent from "@/components/Agent";
-import WhitelistGate from "@/components/WhitelistGate";
+import Gate from "@/components/Gate";
 import MintPanel from "@/components/MintPanel";
 import Roadmap from "@/components/Roadmap";
 import Faq from "@/components/Faq";
@@ -24,7 +24,7 @@ export default function App() {
         <Tiers />
         <Arc />
         <Agent />
-        <WhitelistGate />
+        <Gate />
         <MintPanel />
         <Roadmap />
         <Faq />

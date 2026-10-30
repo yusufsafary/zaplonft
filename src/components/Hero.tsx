@@ -31,7 +31,7 @@ export default function Hero() {
     <section id="top" className="noise gridlines relative overflow-hidden pt-[64px]">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] pt-14 md:pt-24 pb-16">
         <div ref={ref} className="reveal-mask is-in">
-          <p className="label text-volt mb-5">{CONFIG.network.name} · {CONFIG.contract.standard} · Whitelist only</p>
+          <p className="label text-volt mb-5">{CONFIG.network.name} · {CONFIG.contract.standard} · Agent ID only · Free mint</p>
           <h1 className="display font-extrabold uppercase leading-[0.88] tracking-tight text-[17vw] sm:text-[13vw] lg:text-[9.5rem]">
             Five<br />charges<br /><span className="text-volt">per agent.</span>
           </h1>
@@ -56,7 +56,7 @@ export default function Hero() {
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#mint" className="btn btn-solid"><span>Open the mint console</span></a>
-              <a href="#whitelist" className="btn btn-ghost"><span>Check the gate</span></a>
+              <a href="#gate" className="btn btn-ghost"><span>Check the gate</span></a>
             </div>
           </div>
         </div>

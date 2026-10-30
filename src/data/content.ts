@@ -4,14 +4,14 @@ import { CONFIG } from "@/config";
 /*  TICKER                                                             */
 /* ------------------------------------------------------------------ */
 export const TICKER_ITEMS = [
-  `WHITELIST ONLY`,
+  `AGENT ID ONLY`,
+  `FREE MINT`,
   `TOTAL SUPPLY ${CONFIG.supply.total.toLocaleString("en-US")}`,
   `MAX ${CONFIG.supply.maxPerWallet} PER AGENTIC WALLET`,
   `${CONFIG.supply.wallets.toLocaleString("en-US")} WALLETS ELIGIBLE`,
   `${CONFIG.network.name.toUpperCase()}`,
   CONFIG.contract.standard.toUpperCase(),
   `${CONFIG.arc.epochs} EPOCHS × ${CONFIG.arc.hoursPerEpoch}H = ${CONFIG.arc.totalHours}H`,
-  `MINT ${CONFIG.price.amount} ${CONFIG.price.symbol}`,
   `${CONFIG.domain.toUpperCase()}`,
 ];
 
@@ -24,7 +24,7 @@ export const SECTIONS = [
   { id: "tiers", label: "02 / The Rack" },
   { id: "arc", label: "03 / The Arc" },
   { id: "agent", label: "04 / Agent Math" },
-  { id: "whitelist", label: "05 / Whitelist" },
+  { id: "gate", label: "05 / The Gate" },
   { id: "mint", label: "06 / Mint" },
   { id: "roadmap", label: "07 / Roadmap" },
   { id: "faq", label: "08 / FAQ" },
@@ -150,15 +150,15 @@ export const EPOCHS = [
 export const STEPS = [
   {
     numeral: "I",
-    title: "Get whitelisted",
-    body: "Bind a Binance Agentic Wallet that holds a verified Agent ID, submit it to the gate, and wait for the snapshot. One Agent ID earns one slot — never two.",
-    meta: "Snapshot 01 Nov · 23:59 UTC",
+    title: "Hold an Agent ID",
+    body: "Minting is gated on-chain: your Binance Agentic Wallet must hold a verified SPACE ID Agent ID. No whitelist, no application form — the contract reads the Agent ID registry directly.",
+    meta: "Checked on-chain · every mint",
   },
   {
     numeral: "II",
     title: "Mint up to five",
-    body: "Your agent calls mint() and pays 0.0055 BNB per cell. The contract hard-caps every wallet at five; anything above reverts, no exceptions, no owner override.",
-    meta: "Max 5 · 0.0055 BNB each",
+    body: "Your agent calls mint() — the cell itself is free; the wallet only confirms a small anti-bot commission of a few cents. The contract hard-caps every wallet at five; anything above reverts, no exceptions, no owner override.",
+    meta: "Max 5 · free mint",
   },
   {
     numeral: "III",
@@ -175,13 +175,13 @@ export const ROADMAP = [
   {
     at: "0%",
     title: "Gate opens",
-    body: "Whitelist submissions open. Agent ID verification runs against the Binance agentic registry.",
+    body: "The Agent ID gate goes live. Only Binance Agentic Wallets holding a verified SPACE ID Agent ID can strike a cell.",
     status: "done" as const,
   },
   {
     at: "555",
     title: "The registry",
-    body: "Public registry of every whitelisted Agent ID, verifiable on-chain. Sybil list published alongside it.",
+    body: "Public registry of every rack struck, verifiable on-chain — one wallet, one rack of five, no exceptions.",
     status: "done" as const,
   },
   {
@@ -216,7 +216,7 @@ export const ROADMAP = [
 export const FAQ = [
   {
     q: "What exactly is a Binance Agentic Wallet?",
-    a: "A wallet that an autonomous agent controls through a registered Binance Agent ID. The Agent ID is what the whitelist checks — not your exchange account, not your trading history. If your agent can sign on its own behalf, it qualifies for the gate.",
+    a: "A wallet that an autonomous agent controls through a registered Binance Agent ID. The Agent ID is what the gate checks — not your exchange account, not your trading history. If your agent can sign on its own behalf, it qualifies for the gate.",
   },
   {
     q: "Why is the cap five cells per wallet?",
@@ -227,8 +227,8 @@ export const FAQ = [
     a: "The transaction reverts with MAX_PER_WALLET. You pay no mint price and only the failed gas. The counter is read from balanceOf, so cells you send away after grounding do not reopen your slot — the cap counts lifetime mints, not current holdings.",
   },
   {
-    q: "Is the whitelist transferable?",
-    a: "No. A slot is bound to the Agent ID that claimed it. Submitting someone else's address, or running one Agent ID across several wallets, gets every related address removed at snapshot.",
+    q: "Who can mint — and how?",
+    a: "Any Binance Agentic Wallet that holds a verified SPACE ID Agent ID. There is no whitelist and no browser mint: your agent reads the mint skill at zaplo.nl/zaplo-skill.md and calls mint() for you. This website is read-only — it never connects to your wallet.",
   },
   {
     q: "What does grounding actually do to the NFT?",
@@ -240,31 +240,10 @@ export const FAQ = [
   },
   {
     q: "Which chain, which standard, what fee?",
-    a: "BNB Smart Chain (chain ID 56), BEP-721. Mint price is 0.0055 BNB per cell plus roughly a cent of gas. 55% of the mint goes to the charge pool, 25% to the studio, 20% stays in the treasury for the agent hooks.",
+    a: "BNB Smart Chain (chain ID 56), BEP-721. The mint is free — the only charge is a small anti-bot commission of a few cents per cell, shown in your Agentic Wallet before you confirm, plus roughly a cent of gas.",
   },
   {
     q: "Is the contract verified and renounced?",
     a: "It will be published and verified on BscScan before the gate opens, with the mint cap and supply hard-coded as immutables. Ownership is renounced at 25% of supply minted — that milestone is on the roadmap and is not optional.",
   },
-];
-
-/* ------------------------------------------------------------------ */
-/*  DEMO WHITELIST                                                     */
-/* ------------------------------------------------------------------ */
-/**
- * Daftar demo supaya gate bisa diuji langsung di GitHub Pages.
- * Ganti dengan Merkle root / sourceUrl di config untuk produksi.
- */
-export const DEMO_WHITELIST: {
-  address: string;
-  agentId: string;
-  slots: number;
-  tier: string;
-  block: number;
-}[] = [
-  { address: "0x5a510d3e0f2c8b7a4e6d1c9f0a2b3c4d5e6f7081", agentId: "AGT-0001", slots: 5, tier: "Full rack", block: 48215505 },
-  { address: "0x7d4f2b9c1e8a6053d9f4c2b7a1e8064932d5c1f0", agentId: "AGT-0142", slots: 5, tier: "Full rack", block: 48215505 },
-  { address: "0x3a9e51c7b2d84f60e1a9c53b7d24f8e60c1b9d43", agentId: "AGT-0555", slots: 3, tier: "Partial", block: 48215505 },
-  { address: "0xb0c4de97a25f18e63c9b0a72d54f8e19c6b3a270", agentId: "AGT-1111", slots: 5, tier: "Full rack", block: 48215505 },
-  { address: "0x91f6a2c40d8b53e71a9c6f24b0d8e5371a4c9f62", agentId: "AGT-0055", slots: 1, tier: "Single cell", block: 48215505 },
 ];

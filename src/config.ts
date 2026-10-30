@@ -18,9 +18,9 @@
 export const CONFIG = {
   brand: "ZAPLO",
   domain: "zaplo.nl",
-  repo: "https://github.com/OWNER/zaplo", // <- ganti dengan repo kamu
+  repo: "https://github.com/yusufsafary/zaplonft",
   tagline: "Five charges per agent.",
-  lede: "5,555 charge cells on BNB Smart Chain. Whitelist only. A maximum of five cells per Binance Agentic Wallet — because one agent needs a full rack, not a single bolt.",
+  lede: "5,555 charge cells on BNB Smart Chain. Free mint, exclusively through Binance Agentic Wallet — your agent mints, this page never touches your keys. A maximum of five cells per wallet, because one agent needs a full rack, not a single bolt.",
 
   /* ---------------- ekonomi koleksi ---------------- */
   supply: {
@@ -31,7 +31,9 @@ export const CONFIG = {
     },
   },
   price: {
-    amount: "0.0055", // BNB, string agar presisi (tanpa float error)
+    // NFT-nya FREE. Satu-satunya biaya = komisi anti-bot on-chain (currentPrice()
+    // di kontrak) yang muncul di konfirmasi Agentic Wallet — tidak ditampilkan di web.
+    amount: "0",
     symbol: "BNB",
   },
 
@@ -103,7 +105,7 @@ export const CONFIG = {
   links: {
     x: "https://x.com/zaplo",
     discord: "https://discord.gg/zaplo",
-    github: "https://github.com/OWNER/zaplo",
+    github: "https://github.com/yusufsafary/zaplonft",
     mirror: "https://mirror.xyz/zaplo.eth",
     opensea: "https://opensea.io/collection/zaplo",
     bscscan: "",

@@ -3,11 +3,10 @@ import { num } from "@/lib/format";
 import { Reveal, SectionHead } from "./Reveal";
 
 export default function Agent() {
-  const rackPrice = (parseFloat(CONFIG.price.amount) * CONFIG.supply.maxPerWallet).toFixed(4);
   const rows: [string, string, string][] = [
     ["Supply / cap", `${num(CONFIG.supply.total)} / ${CONFIG.supply.maxPerWallet}`, `${num(CONFIG.supply.wallets)} racks exist. Ever.`],
-    ["One cell", `${CONFIG.price.amount} ${CONFIG.price.symbol}`, "A single charge. An agent with one cell is under-racked."],
-    ["A full rack", `${rackPrice} ${CONFIG.price.symbol}`, "Five cells in one wallet read on-chain as one closed circuit."],
+    ["One cell", "FREE", "A single charge. An agent with one cell is under-racked."],
+    ["A full rack", "FREE × 5", "Five cells in one wallet read on-chain as one closed circuit. The only cost is the anti-bot commission — a few cents per mint, confirmed in the wallet."],
     ["The arc", `${CONFIG.arc.totalHours} hours`, `${CONFIG.arc.epochs} epochs × ${CONFIG.arc.hoursPerEpoch}h, counted from the mint block — free.`],
     ["Stored charge", CONFIG.arc.reward, "Released to the holder when the last cell grounds."],
     ["Sixth cell", "REVERT", "MAX_PER_WALLET. No owner override, no team allocation, no back door."],
