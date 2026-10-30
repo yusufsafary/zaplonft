@@ -14,7 +14,7 @@ export default function Countdown() {
         {cd.past ? (
           <>
             <p className="display font-extrabold uppercase leading-[0.95] tracking-tight text-3xl md:text-5xl">
-              MINT OPENING — VIA YOUR BINANCE AGENT
+              MINT OPEN — VIA YOUR BINANCE AGENT
             </p>
             <p className="label text-[11px] text-ash mt-4">
               Free mint · max 5 per wallet · exclusively through Binance Agentic Wallet
