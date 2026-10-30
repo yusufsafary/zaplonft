@@ -13,7 +13,16 @@ export function getMintStatus(): MintStatus {
 }
 
 export function statusLabel(s: MintStatus): string {
-  return s === "upcoming" ? "GATE OPEN" : s === "live" ? "MINT LIVE" : "MINT CLOSED";
+  // Kontrak belum di-deploy: setelah jam buka pun statusnya "MINT OPENING",
+  // bukan live — mint berjalan lewat agen begitu kontrak terpasang.
+  const deployed = CONFIG.contract.address.length > 0;
+  return s === "upcoming"
+    ? "MINT OPENS · 11:30 UTC"
+    : s === "live"
+      ? deployed
+        ? "MINT OPEN"
+        : "MINT OPENING"
+      : "MINT CLOSED";
 }
 
 export function statusTone(s: MintStatus): string {

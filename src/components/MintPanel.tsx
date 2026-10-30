@@ -67,7 +67,7 @@ export default function MintPanel() {
               <div className="flex items-baseline justify-between mt-6">
                 <span className="label text-[11px] text-ash">Cells struck</span>
                 <span className="label text-[11px]" style={{ color: !live ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>
-                  {!live ? "DEPLOYING" : open ? "MINT LIVE" : "COMING SOON"}
+                  {!live ? "DEPLOYING" : open ? "MINT OPEN" : "COMING SOON"}
                 </span>
               </div>
               <div ref={ref}>

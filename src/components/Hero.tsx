@@ -56,7 +56,7 @@ export default function Hero() {
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#mint" className="btn btn-solid"><span>Open the mint console</span></a>
-              <a href="#gate" className="btn btn-ghost"><span>Check the gate</span></a>
+              <a href="/guide/#gate" className="btn btn-ghost"><span>Check the gate</span></a>
             </div>
           </div>
         </div>

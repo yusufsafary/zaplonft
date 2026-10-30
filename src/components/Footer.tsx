@@ -12,9 +12,14 @@ export default function Footer() {
             <p className="label text-[10px] text-ash mt-4">{CONFIG.supply.total.toLocaleString("en-US")} cells · {CONFIG.network.name} · {CONFIG.contract.standard}</p>
           </div>
           <nav className="grid grid-cols-2 gap-x-12 gap-y-2">
-            {SECTIONS.slice(1, 7).map((s) => (
+            {SECTIONS.slice(1).map((s) => (
               <a key={s.id} href={`#${s.id}`} className="label text-[11px] text-ash hover:text-paper transition-colors">{s.label}</a>
             ))}
+            <a href="/guide/" className="label text-[11px] text-ash hover:text-paper transition-colors">Guide</a>
+            <a href="/guide/#idea" className="label text-[11px] text-ash hover:text-paper transition-colors">The Idea</a>
+            <a href="/guide/#tiers" className="label text-[11px] text-ash hover:text-paper transition-colors">The Rack</a>
+            <a href="/guide/#gate" className="label text-[11px] text-ash hover:text-paper transition-colors">The Gate</a>
+            <a href="/guide/#faq" className="label text-[11px] text-ash hover:text-paper transition-colors">FAQ</a>
           </nav>
           <div className="flex flex-col gap-2">
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.x} target="_blank" rel="noreferrer">X / Twitter ↗</a>

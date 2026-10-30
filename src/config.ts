@@ -49,8 +49,8 @@ export const CONFIG = {
 
   /* ---------------- jadwal ---------------- */
   schedule: {
-    /** ISO 8601 / UTC. Otomatis jadi "MINT LIVE" kalau sudah lewat. */
-    mintStart: "2026-11-05T15:05:00.000Z",
+    /** ISO 8601 / UTC. Countdown beranda menghitung mundur ke instant ini. */
+    mintStart: "2026-10-30T11:30:00.000Z",
     whitelistOpen: "2026-10-05T00:00:00.000Z",
     whitelistClose: "2026-11-01T23:59:00.000Z",
     snapshotLabel: "Snapshot 01 Nov 2026 · 23:59 UTC",
@@ -71,7 +71,7 @@ export const CONFIG = {
 
   contract: {
     /** Kosongkan sampai kontrak di-deploy -> situs jalan di MODE SIMULASI */
-    address: "",
+    address: "0x6EAC776746be0E63169f8bF17466d02D19A4D2f7",
     standard: "BEP-721 (ERC-721)",
     audited: false,
     /**
