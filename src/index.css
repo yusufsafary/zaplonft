@@ -455,3 +455,10 @@ body {
   overflow-x: clip;
   max-width: 100%;
 }
+
+/* ---------- bunuh lapisan grain: di sebagian browser HP ia tampil sebagai
+   sapuan putih susu yang menenggelamkan hero (blend soft-light + feTurbulence) ---------- */
+.noise::after {
+  content: none !important;
+  display: none !important;
+}
