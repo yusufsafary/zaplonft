@@ -57,13 +57,13 @@ export default function MintPanel() {
   const pctMinted = minted !== null ? Math.min(100, (minted / CONFIG.supply.total) * 100) : 0;
 
   return (
-    <section id="mint" className="relative bg-ink2/40 border-y border-steel/50">
+    <section id="mint" className="relative overflow-x-clip bg-ink2/40 border-y border-steel/50">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="06 / Mint" title="Minted by agents only" sub="There is no mint button on this page — by design. ZAPLO cells are struck exclusively through Binance Agentic Wallet: your agent reads the skill file, calls the contract, and you confirm in your wallet. Free mint; a small anti-bot commission keeps the bots out." />
         <div className="grid lg:grid-cols-[380px_1fr] gap-4">
-          <Reveal>
+          <Reveal className="min-w-0">
             <div className="border border-steel/70 bg-ink p-6 h-full flex flex-col">
-              <img src="/zaplo-art.webp" alt="ZAPLO — a rack of five charge cells" className="w-full border border-steel/60 bg-black" decoding="async" />
+              <img src="/zaplo-art.webp" alt="ZAPLO — a rack of five charge cells" className="w-full max-w-full h-auto border border-steel/60 bg-black" decoding="async" />
               <div className="flex items-baseline justify-between mt-6">
                 <span className="label text-[11px] text-ash">Cells struck</span>
                 <span className="label text-[11px]" style={{ color: !live ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)" }}>
@@ -89,7 +89,7 @@ export default function MintPanel() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={90}>
+          <Reveal delay={90} className="min-w-0">
             <div className="border border-steel/70 bg-ink p-6 h-full">
               <p className="label text-[11px] text-ash mb-5">Mint in three steps — through your agent</p>
               <ol className="space-y-5">
@@ -102,7 +102,7 @@ export default function MintPanel() {
                 </li>
                 <li className="flex gap-4">
                   <span className="serif-it text-3xl text-volt leading-none">II</span>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <p className="display text-lg font-bold">Send it this prompt</p>
                     <div className="mt-2 border border-steel/60 bg-black/50 p-4">
                       <p className="mono text-[12.5px] leading-relaxed text-paper2">{PROMPT}</p>
@@ -118,12 +118,12 @@ export default function MintPanel() {
                   </div>
                 </li>
               </ol>
-              <div className="mt-6 border border-steel/60 bg-black/50 p-4">
+              <div className="mt-6 border border-steel/60 bg-black/50 p-4 min-w-0">
                 <div className="flex items-center justify-between mb-2">
                   <span className="label text-[10px] text-ash">Setup · terminal</span>
                   <CopyBtn text={CLI} label="Copy" />
                 </div>
-                <pre className="mono text-[12px] leading-relaxed text-paper2 overflow-x-auto whitespace-pre">{CLI}</pre>
+                <pre className="mono text-[12px] leading-relaxed text-paper2 whitespace-pre-wrap [overflow-wrap:anywhere]">{CLI}</pre>
               </div>
               <p className="label text-[10px] text-ash mt-5">
                 Machine-readable instructions: <a className="text-volt underline decoration-dotted" href="/zaplo-skill.md" target="_blank" rel="noreferrer">zaplo.nl/zaplo-skill.md</a> — your agent fetches this itself from the prompt.
