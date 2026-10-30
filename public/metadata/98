@@ -1,0 +1,12 @@
+{
+  "name": "ZAPLO #98",
+  "description": "ZAPLO — 5,555 agent-native charge cells on BNB Smart Chain. Free mint, exclusively through Binance Agentic Wallet. Max five cells per wallet. Each cell burns for 55 hours, then grounds into a permanent relic.",
+  "image": "https://zaplo.nl/zaplo-art.webp",
+  "external_url": "https://zaplo.nl/",
+  "attributes": [
+    {
+      "trait_type": "Cell",
+      "value": "98"
+    }
+  ]
+}
