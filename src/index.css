@@ -447,3 +447,11 @@ html {
 .snap-row::-webkit-scrollbar {
   display: none;
 }
+
+/* ---------- anti melebar: halaman tidak boleh bisa digeser kanan-kiri ---------- */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+}

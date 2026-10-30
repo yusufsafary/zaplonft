@@ -85,7 +85,7 @@ export default function MintPanel() {
                 <div className="flex justify-between"><span className="text-ash">Gate</span><span>SPACE ID Agent ID</span></div>
               </dl>
               <p className="label text-[10px] text-ash mt-6">
-                {live ? <>Contract <span className="mono normal-case">{CONFIG.contract.address}</span></> : "Contract address appears here the moment it deploys — state above then reads live from chain every 20 seconds."}
+                {live ? <>Contract <span className="mono normal-case break-all">{CONFIG.contract.address}</span></> : "Contract address appears here the moment it deploys — state above then reads live from chain every 20 seconds."}
               </p>
             </div>
           </Reveal>

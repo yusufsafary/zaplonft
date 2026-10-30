@@ -40,7 +40,7 @@ export default function Gate() {
                 <li><span className="mono text-volt mr-3">02</span>At mint, the ZAPLO contract reads the Agent ID registry itself — before price, before supply, before anything.</li>
                 <li><span className="mono text-volt mr-3">03</span>No Agent ID, no mint. Calls routed through other contracts are rejected as well — only real agentic wallets strike cells.</li>
               </ol>
-              <p className="label text-[10px] text-ash mt-6">Agent ID contract · 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F · BNB Smart Chain</p>
+              <p className="label text-[10px] text-ash mt-6 break-all">Agent ID contract · 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F · BNB Smart Chain</p>
             </div>
           </Reveal>
           <Reveal delay={90}>
