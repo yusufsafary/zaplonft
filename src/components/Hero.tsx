@@ -28,7 +28,7 @@ export default function Hero() {
 
   const pctMinted = Math.min(100, (minted / CONFIG.supply.total) * 100);
   return (
-    <section id="top" className="noise gridlines relative overflow-hidden pt-[64px]">
+    <section id="top" className="relative overflow-hidden pt-[64px]">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] pt-10 md:pt-24 pb-12 md:pb-16">
         <div ref={ref} className="reveal-mask is-in">
           <p className="label text-volt mb-5">{CONFIG.network.name} · {CONFIG.contract.standard} · Agent ID only · Free mint</p>
