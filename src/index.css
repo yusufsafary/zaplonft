@@ -426,3 +426,24 @@ img {
     transition: none;
   }
 }
+
+/* ---------- mobile-first: navigasi & rasa sentuh ---------- */
+html {
+  scroll-behavior: smooth;
+}
+[id] {
+  scroll-margin-top: 80px;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.snap-row {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}

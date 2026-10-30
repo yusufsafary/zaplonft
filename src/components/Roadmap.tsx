@@ -10,7 +10,7 @@ const TONE: Record<string, string> = {
 export default function Roadmap() {
   return (
     <section id="roadmap" className="relative">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="07 / Roadmap" title="Milestones, struck in order" sub="The roadmap is indexed to the mint counter, not the calendar. When the counter crosses a line, the line ships." />
         <div className="border-t border-steel/60">
           {ROADMAP.map((r, i) => (

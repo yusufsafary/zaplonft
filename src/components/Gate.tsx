@@ -29,7 +29,7 @@ export default function Gate() {
 
   return (
     <section id="gate" className="relative">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="05 / The Gate" title="One gate: the Agent ID" sub="There is no whitelist and no application form. The contract checks one thing, on-chain, at the moment of minting: does the calling Binance Agentic Wallet hold a verified SPACE ID Agent ID?" />
         <div className="grid lg:grid-cols-2 gap-4">
           <Reveal>

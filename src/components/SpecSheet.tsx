@@ -20,7 +20,7 @@ const rows: [string, string][] = [
 export default function SpecSheet() {
   return (
     <section className="relative">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-14 md:py-20">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-10 md:py-20">
         <Reveal>
           <div className="border border-steel/70">
             <div className="flex items-center justify-between border-b border-steel/70 px-5 py-3 bg-ink2/70">
@@ -29,9 +29,9 @@ export default function SpecSheet() {
             </div>
             <dl className="grid md:grid-cols-2">
               {rows.map(([k, v], i) => (
-                <div key={k} className={`flex items-baseline justify-between gap-6 px-5 py-3.5 ${i % 2 === 0 ? "md:border-r" : ""} border-b border-steel/40`}>
+                <div key={k} className={`flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 px-5 py-3.5 ${i % 2 === 0 ? "md:border-r" : ""} border-b border-steel/40`}>
                   <dt className="label text-[11px] text-ash shrink-0">{k}</dt>
-                  <dd className="mono text-[13px] text-right text-paper">{v}</dd>
+                  <dd className="mono text-[13px] text-left sm:text-right text-paper">{v}</dd>
                 </div>
               ))}
             </dl>

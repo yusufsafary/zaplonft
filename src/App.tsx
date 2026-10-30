@@ -11,10 +11,11 @@ import MintPanel from "@/components/MintPanel";
 import Roadmap from "@/components/Roadmap";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
+import MobileNav from "@/components/MobileNav";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ink text-paper">
+    <div className="min-h-screen bg-ink text-paper pb-[76px] lg:pb-0">
       <Nav />
       <Rail />
       <main>
@@ -30,6 +31,7 @@ export default function App() {
         <Faq />
       </main>
       <Footer />
+      <MobileNav />
     </div>
   );
 }

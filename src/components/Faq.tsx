@@ -4,7 +4,7 @@ import { Reveal, SectionHead } from "./Reveal";
 export default function Faq() {
   return (
     <section id="faq" className="relative bg-ink2/40 border-t border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="08 / FAQ" title="Asked, answered" />
         <div className="grid lg:grid-cols-2 gap-x-10">
           {FAQ.map((f, i) => (

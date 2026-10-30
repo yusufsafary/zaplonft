@@ -13,7 +13,7 @@ export default function Agent() {
   ];
   return (
     <section id="agent" className="relative bg-ink2/40 border-y border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="04 / Agent Math" title="Arithmetic, not hype" sub="The collection is shaped by one division. Everything else — the cap, the gate, the rack — falls out of it." />
         <Reveal>
           <p className="display tnum text-center font-extrabold leading-none text-[13vw] md:text-[7rem]">

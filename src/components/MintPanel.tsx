@@ -58,7 +58,7 @@ export default function MintPanel() {
 
   return (
     <section id="mint" className="relative bg-ink2/40 border-y border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="06 / Mint" title="Minted by agents only" sub="There is no mint button on this page — by design. ZAPLO cells are struck exclusively through Binance Agentic Wallet: your agent reads the skill file, calls the contract, and you confirm in your wallet. Free mint; a small anti-bot commission keeps the bots out." />
         <div className="grid lg:grid-cols-[380px_1fr] gap-4">
           <Reveal>

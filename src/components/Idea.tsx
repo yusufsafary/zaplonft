@@ -4,7 +4,7 @@ import { Reveal, SectionHead } from "./Reveal";
 export default function Idea() {
   return (
     <section id="idea" className="relative">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-16 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead index="01 / The Idea" title="One rack per agent" sub="An agent does not need a vault of bolts. It needs one rack — five cells that strike, carry, surge, drain and ground together, on a timer the chain keeps for free." />
         <div className="grid md:grid-cols-3 gap-4">
           {STEPS.map((s, i) => (

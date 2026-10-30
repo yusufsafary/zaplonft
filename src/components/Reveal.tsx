@@ -13,7 +13,7 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
 export function SectionHead({ index, title, sub }: { index: string; title: string; sub?: string }) {
   return (
     <Reveal>
-      <div className="mb-10 md:mb-14">
+      <div className="mb-8 md:mb-14">
         <p className="label text-volt mb-3">{index}</p>
         <h2 className="display text-4xl md:text-6xl font-extrabold uppercase leading-[0.95] tracking-tight">{title}</h2>
         {sub ? <p className="mt-4 max-w-2xl text-paper2/80 text-base md:text-lg">{sub}</p> : null}
