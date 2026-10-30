@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div>
-            <p className="display text-3xl font-extrabold">{CONFIG.brand} <span className="text-volt">⚡</span></p>
+            <p className="display text-3xl font-extrabold">{CONFIG.brand} <svg viewBox="0 0 32 32" className="inline-block size-[0.72em] text-volt -translate-y-[0.08em]" aria-hidden="true"><path d="M18.5 3 8 18h6.2L12 29l11-16h-6.6z" fill="currentColor" /></svg></p>
             <p className="serif-it text-paper2/80 mt-1">{CONFIG.tagline}</p>
             <p className="label text-[10px] text-ash mt-4">{CONFIG.supply.total.toLocaleString("en-US")} cells · {CONFIG.network.name} · {CONFIG.contract.standard}</p>
           </div>
@@ -22,7 +22,7 @@ export default function Footer() {
             <a href="/guide/#faq" className="label text-[11px] text-ash hover:text-paper transition-colors">FAQ</a>
           </nav>
           <div className="flex flex-col gap-2">
-            <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.x} target="_blank" rel="noreferrer">X / Twitter ↗</a>
+            <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.x} target="_blank" rel="noreferrer">X · @zaplonl ↗</a>
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.discord} target="_blank" rel="noreferrer">Discord ↗</a>
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href="https://github.com/yusufsafary/zaplonft" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a className="label text-[11px] text-ash hover:text-volt transition-colors" href={CONFIG.links.mirror} target="_blank" rel="noreferrer">Mirror ↗</a>

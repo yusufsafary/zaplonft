@@ -103,7 +103,7 @@ export const CONFIG = {
   },
 
   links: {
-    x: "https://x.com/zaplo",
+    x: "https://x.com/zaplonl",
     discord: "https://discord.gg/zaplo",
     github: "https://github.com/yusufsafary/zaplonft",
     mirror: "https://mirror.xyz/zaplo.eth",

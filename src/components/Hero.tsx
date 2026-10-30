@@ -66,7 +66,7 @@ export default function Hero() {
           {[0, 1].map((n) => (
             <span key={n} className="label text-[12px] text-ash">
               {TICKER_ITEMS.map((t, i) => (
-                <span key={i} className="mx-6"><span className="text-volt mr-6">⚡</span>{t}</span>
+                <span key={i} className="mx-6"><svg viewBox="0 0 32 32" className="inline-block size-[13px] text-volt mr-6 -translate-y-[1px]" aria-hidden="true"><path d="M18.5 3 8 18h6.2L12 29l11-16h-6.6z" fill="currentColor" /></svg>{t}</span>
               ))}
             </span>
           ))}
