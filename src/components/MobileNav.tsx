@@ -16,6 +16,14 @@ const ITEMS = [
     icon: <path d="M13.2 2.5 5 13.8h5.4L8.6 21.5 19 10h-5.6z" fill="currentColor" />,
   },
   {
+    id: "claim",
+    label: "Claim",
+    href: "#claim",
+    icon: (
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm3.2 6.3-4.6 6.4-2-2.1-1.3 1.3 3.4 3.5 6-7.7z" fill="currentColor" />
+    ),
+  },
+  {
     id: "guide",
     label: "Guide",
     href: "/guide/",
@@ -27,14 +35,14 @@ const ITEMS = [
 
 /** Navigasi bawah khusus mobile — jempol-ramah, indikator section aktif. */
 export default function MobileNav() {
-  const active = useActiveSection(["top", "mint"]);
+  const active = useActiveSection(["top", "mint", "claim"]);
   return (
     <nav
       className="fixed bottom-0 inset-x-0 z-50 lg:hidden border-t border-steel/60 bg-ink/95 backdrop-blur-md"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       aria-label="Mobile"
     >
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-4">
         {ITEMS.map((it) => (
           <a
             key={it.id}

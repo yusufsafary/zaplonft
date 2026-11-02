@@ -89,6 +89,21 @@ export const CONFIG = {
     },
   },
 
+  /* ---------------- klaim holder $ZAP ---------------- */
+  claim: {
+    /** Kontrak ZaploClaim — klaim 500.000 ZAP per NFT, sekali per tokenId. */
+    address: "0xC9D8a94419deF5e1e60886540B228505efc2DF2b",
+    token: {
+      address: "0x5A164b05C85FFD1E3b79194EAC558335e1B171F9",
+      name: "Zaplo",
+      symbol: "ZAP",
+      totalSupply: 10_000_000_000,
+    },
+    perNft: 500_000,
+    maxClaimable: 5555,
+    pool: 2_777_500_000,
+  },
+
   /* ---------------- whitelist ---------------- */
   whitelist: {
     /**

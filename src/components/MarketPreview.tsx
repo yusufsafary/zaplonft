@@ -6,7 +6,7 @@ export default function MarketPreview() {
     <section id="market" className="relative overflow-x-clip border-b border-steel/50">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8 xl:pl-[108px] py-12 md:py-24">
         <SectionHead
-          index="07 / Market"
+          index="08 / Market"
           title="The Cell Market"
           sub="Secondary trading for struck cells — wallet to wallet on BNB Smart Chain. The board opens after the mint runs; until then, this section is the rack it will fill."
         />

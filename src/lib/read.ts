@@ -9,6 +9,13 @@ export const SEL = {
   paidMintedBy: "0x80f231fb",
 } as const;
 
+/** Selector baca-saja kontrak ZaploClaim (sama seperti zaplo-claim-skill.md). */
+export const SEL_CLAIM = {
+  claimOpen: "0x4b8bcb58",
+  totalClaimed: "0xd54ad2a1",
+  claimsRemaining: "0x754c463f",
+} as const;
+
 const RPCS = [CONFIG.network.rpcUrl, "https://bsc-rpc.publicnode.com", "https://bsc-dataseed.binance.org"];
 
 /** eth_call read-only lewat RPC publik; null kalau semua RPC gagal. */

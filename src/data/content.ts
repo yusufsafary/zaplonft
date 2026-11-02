@@ -21,6 +21,7 @@ export const TICKER_ITEMS = [
 export const SECTIONS = [
   { id: "top", label: "00 / Index" },
   { id: "mint", label: "01 / Mint" },
+  { id: "claim", label: "02 / Claim" },
 ];
 
 /* ------------------------------------------------------------------ */

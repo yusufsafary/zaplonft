@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Countdown from "@/components/Countdown";
 import MintPanel from "@/components/MintPanel";
+import ClaimPanel from "@/components/ClaimPanel";
 import MarketPreview from "@/components/MarketPreview";
 import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
@@ -14,6 +15,7 @@ export default function App() {
         <Hero />
         <Countdown />
         <MintPanel />
+        <ClaimPanel />
         <MarketPreview />
       </main>
       <Footer />
