@@ -9,21 +9,31 @@ export function useHeroStats(): HeroStats {
   const [stats, setStats] = useState<HeroStats>({ minted: null, claimed: null, mintOpen: null, claimOpen: null });
   useEffect(() => {
     let alive = true;
-    const load = async () => {
-      const [m, o] = await Promise.all([readContract("nft", SEL.totalMinted), readContract("nft", SEL.mintOpen)]);
-      const [c, co] = await Promise.all([readContract("claim", SEL_CLAIM.totalClaimed), readContract("claim", SEL_CLAIM.claimOpen)]);
-      if (!alive) return;
-      setStats({
-        minted: m !== null ? Number(m) : null,
-        claimed: c !== null ? Number(c) : null,
-        mintOpen: o !== null ? o === 1n : null,
-        claimOpen: co !== null ? co === 1n : null,
-      });
+    let retries = 0;
+    // Setiap pembacaan memperbarui bidangnya sendiri begitu tiba; halaman memuat
+    // banyak pembaca sekaligus, jadi satu panggilan lambat tidak boleh menahan sisanya.
+    const load = () => {
+      readContract("nft", SEL.totalMinted).then((v) => alive && v !== null && setStats((s) => ({ ...s, minted: Number(v) })));
+      readContract("nft", SEL.mintOpen).then((v) => alive && v !== null && setStats((s) => ({ ...s, mintOpen: v === 1n })));
+      readContract("claim", SEL_CLAIM.totalClaimed).then((v) => alive && v !== null && setStats((s) => ({ ...s, claimed: Number(v) })));
+      readContract("claim", SEL_CLAIM.claimOpen).then((v) => alive && v !== null && setStats((s) => ({ ...s, claimOpen: v === 1n })));
     };
     load();
+    const quick = setInterval(() => {
+      retries += 1;
+      if (retries > 4) {
+        clearInterval(quick);
+        return;
+      }
+      setStats((s) => {
+        if (s.minted === null || s.claimed === null || s.mintOpen === null) load();
+        return s;
+      });
+    }, 6000);
     const t = setInterval(load, 30000);
     return () => {
       alive = false;
+      clearInterval(quick);
       clearInterval(t);
     };
   }, []);
