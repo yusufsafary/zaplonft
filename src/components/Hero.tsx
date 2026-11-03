@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CONFIG } from "@/config";
 import { num } from "@/lib/format";
 import { readContract, SEL, SEL_CLAIM } from "@/lib/read";
 import { Reveal } from "./Reveal";
@@ -13,10 +14,10 @@ export function useHeroStats(): HeroStats {
     // Setiap pembacaan memperbarui bidangnya sendiri begitu tiba; halaman memuat
     // banyak pembaca sekaligus, jadi satu panggilan lambat tidak boleh menahan sisanya.
     const load = () => {
-      readContract("nft", SEL.totalMinted).then((v) => alive && v !== null && setStats((s) => ({ ...s, minted: Number(v) })));
-      readContract("nft", SEL.mintOpen).then((v) => alive && v !== null && setStats((s) => ({ ...s, mintOpen: v === 1n })));
-      readContract("claim", SEL_CLAIM.totalClaimed).then((v) => alive && v !== null && setStats((s) => ({ ...s, claimed: Number(v) })));
-      readContract("claim", SEL_CLAIM.claimOpen).then((v) => alive && v !== null && setStats((s) => ({ ...s, claimOpen: v === 1n })));
+      readContract(CONFIG.contract.address, SEL.totalMinted).then((v) => alive && v !== null && setStats((s) => ({ ...s, minted: Number(v) })));
+      readContract(CONFIG.contract.address, SEL.mintOpen).then((v) => alive && v !== null && setStats((s) => ({ ...s, mintOpen: v === 1n })));
+      readContract(CONFIG.claim.address, SEL_CLAIM.totalClaimed).then((v) => alive && v !== null && setStats((s) => ({ ...s, claimed: Number(v) })));
+      readContract(CONFIG.claim.address, SEL_CLAIM.claimOpen).then((v) => alive && v !== null && setStats((s) => ({ ...s, claimOpen: v === 1n })));
     };
     load();
     const quick = setInterval(() => {
