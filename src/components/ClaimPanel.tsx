@@ -120,7 +120,7 @@ export default function ClaimPanel() {
 
   return (
     <section id="claim" className="relative overflow-x-clip bg-ink border-b border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 py-12 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 py-12 md:py-16">
         <SectionHead index="02 / Claim" title="Every cell carries $ZAP" sub="Each ZAPLO charge cell entitles its holder to claim 500,000 $ZAP: once per cell, no deadline, following whoever holds the cell today. Claims run through your agent only, exactly like the mint. $ZAP was never sold; a small anti-bot fee keeps the bots out." />
 
         <Reveal className="mb-4">

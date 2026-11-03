@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<title>ZAPLO — Whitepaper · Collection, $ZAP Token, Claim, Launch</title>
+<meta name="description" content="Zaplo whitepaper: 5,555 agent-gated charge cells on BNB Smart Chain, the fixed 10 billion $ZAP supply and its distribution, holder claim mechanics, and the PancakeSwap launch on 8 November 2026." />
+<link rel="canonical" href="https://zaplo.nl/whitepaper/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0E0F'/%3E%3Cpath d='M18.5 3 8 18h6.2L12 29l11-16h-6.6z' fill='%23F2D024'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#0B0E0F;--ink2:#111617;--steel:#2B3436;--paper:#EFEFEA;--paper2:#d8d8d0;--ash:#8C9491;--volt:#F2D024;--live:#2FBF71}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--volt);color:var(--ink)}
+a{color:var(--volt)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:40;background:rgba(11,14,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--steel)}
+header.top .wrap{display:flex;align-items:center;gap:22px;height:60px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.02em;color:var(--paper);text-decoration:none}
+.logo b{color:var(--volt)}
+nav.main{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+nav.main a{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);text-decoration:none}
+nav.main a:hover,nav.main a.on{color:var(--paper)}
+.label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--volt)}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.03em;font-size:clamp(46px,9vw,96px);margin:14px 0 18px}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:-.02em;font-size:clamp(26px,4.5vw,40px);margin:0 0 12px}
+.lede{font-size:18px;color:var(--paper2);max-width:640px}
+.hero{padding:56px 0 8px}
+section.blk{padding:38px 0;border-top:1px solid var(--steel)}
+p{color:var(--paper2);max-width:720px}
+.mono{font-family:"IBM Plex Mono",monospace}
+table{width:100%;border-collapse:collapse;font-family:"IBM Plex Mono",monospace;font-size:13px;margin:14px 0 6px}
+td,th{border:1px solid var(--steel);padding:9px 12px;text-align:left;vertical-align:top}
+td.k{color:var(--ash);width:34%}
+th{background:var(--ink2);color:var(--paper);font-weight:600}
+.addr{word-break:break-all}
+footer{border-top:1px solid var(--steel);padding:28px 0 90px;margin-top:30px}
+footer p{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ash);letter-spacing:.08em}
+@media(min-width:1024px){footer{padding-bottom:34px}}
+.small{font-size:13px;color:var(--ash)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">ZAPLO<b>.</b></a>
+    <nav class="main">
+      <a href="/#mint">Mint</a>
+      <a href="/#claim">Claim</a>
+      <a href="/roadmap/">Roadmap</a>
+      <a href="/whitepaper/" class="on">Whitepaper</a>
+      <a href="https://x.com/zaplonl" target="_blank" rel="noreferrer">X ↗</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <p class="label">Whitepaper · v1 · November 2026</p>
+    <h1>Whitepaper.</h1>
+    <p class="lede">Zaplo in one document: a fixed set of 5,555 charge cells minted only by AI agents, a fixed supply of $ZAP that reaches the market through holder claims, and a public launch on PancakeSwap. Every number below can be checked on-chain.</p>
+  </div>
+
+  <section class="blk">
+    <p class="label">01 · Overview</p>
+    <h2>Built for agents</h2>
+    <p>Zaplo is a collection of 5,555 charge cells on BNB Smart Chain. Minting and claiming are performed exclusively by Binance Agentic Wallets: software agents that hold a Binance Agent ID and sign on their owner's behalf. Humans instruct their agents; agents call the contracts; people confirm in their wallets. This website is read-only and never connects to a wallet, holds keys, or moves funds.</p>
+  </section>
+
+  <section class="blk">
+    <p class="label">02 · Collection</p>
+    <h2>Charge cells</h2>
+    <table>
+      <tr><td class="k">Name</td><td>Zaplo (ZAPLO charge cells)</td></tr>
+      <tr><td class="k">Standard</td><td>BEP-721 (ERC-721), BNB Smart Chain, chain id 56</td></tr>
+      <tr><td class="k">Supply</td><td>5,555, hard cap in the contract</td></tr>
+      <tr><td class="k">Mint price</td><td>Free. A small anti-bot commission applies per mint and is shown in the wallet confirmation; it is never displayed on this site.</td></tr>
+      <tr><td class="k">Per wallet</td><td>5 cells at most, enforced on-chain</td></tr>
+      <tr><td class="k">Gate</td><td>Caller must hold a SPACE ID Agent ID; calls routed through other contracts are rejected</td></tr>
+      <tr><td class="k">Contract</td><td class="addr"><a href="https://bscscan.com/address/0x6EAC776746be0E63169f8bF17466d02D19A4D2f7" target="_blank" rel="noreferrer">0x6EAC776746be0E63169f8bF17466d02D19A4D2f7 ↗</a></td></tr>
+    </table>
+  </section>
+
+  <section class="blk">
+    <p class="label">03 · Token</p>
+    <h2>$ZAP, fixed at ten billion</h2>
+    <p>$ZAP is the collection's token. Its whole supply was minted once, at deployment, to the project wallet; the contract has no function to create more. No presale, private round, or team sale has taken place: before launch, $ZAP leaves the project only through holder claims.</p>
+    <table>
+      <tr><td class="k">Name / symbol</td><td>Zaplo / ZAP</td></tr>
+      <tr><td class="k">Total supply</td><td>10,000,000,000 ZAP, fixed</td></tr>
+      <tr><td class="k">Transfer tax</td><td>None in the token contract</td></tr>
+      <tr><td class="k">Contract</td><td class="addr"><a href="https://bscscan.com/address/0x5A164b05C85FFD1E3b79194EAC558335e1B171F9" target="_blank" rel="noreferrer">0x5A164b05C85FFD1E3b79194EAC558335e1B171F9 ↗</a></td></tr>
+    </table>
+    <table>
+      <tr><th>Allocation</th><th>Amount</th><th>Share</th></tr>
+      <tr><td>Holder claim pool, locked in the claim contract</td><td>2,780,500,000</td><td>27.8%</td></tr>
+      <tr><td>Reserve and launch liquidity, project wallet</td><td>7,219,500,000</td><td>72.2%</td></tr>
+    </table>
+    <p class="small">Pool figure includes a 3,000,000 buffer above the 2,777,500,000 that 5,555 full claims require; the buffer stays locked in the claim contract.</p>
+  </section>
+
+  <section class="blk">
+    <p class="label">04 · Claim mechanics</p>
+    <h2>One claim per cell</h2>
+    <p>Each struck cell claims 500,000 $ZAP exactly once. Claims attach to the tokenId, not to a wallet: if a cell changes hands before claiming, its new holder claims; if it already claimed under a previous owner, nothing remains to claim. A claim pays a small anti-bot fee, read fresh from the claim contract at claim time, and there is no deadline. Tokens sitting in the claim pool cannot be withdrawn by anyone, including the contract owner; only collected fees can be withdrawn.</p>
+    <table>
+      <tr><td class="k">Per cell</td><td>500,000 $ZAP, once per tokenId</td></tr>
+      <tr><td class="k">Claim contract</td><td class="addr"><a href="https://bscscan.com/address/0xC9D8a94419deF5e1e60886540B228505efc2DF2b" target="_blank" rel="noreferrer">0xC9D8a94419deF5e1e60886540B228505efc2DF2b ↗</a></td></tr>
+      <tr><td class="k">Opened</td><td>2 November 2026</td></tr>
+      <tr><td class="k">Deadline</td><td>None</td></tr>
+    </table>
+  </section>
+
+  <section class="blk">
+    <p class="label">05 · Launch</p>
+    <h2>PancakeSwap, 8 November 2026</h2>
+    <p>Public trading for $ZAP opens on PancakeSwap on 8 November 2026 at 00.00 UTC, in a ZAP/BNB pool created and seeded with liquidity by the project at launch. The pool address will be published on zaplo.nl and on X (@zaplonl) when trading opens; any pool announced elsewhere before that moment is not official. After launch, claims continue in parallel: holding an unclaimed cell remains a standing claim on 500,000 $ZAP from the pool.</p>
+  </section>
+
+  <section class="blk">
+    <p class="label">06 · House rules</p>
+    <h2>Rules that do not change</h2>
+    <p>Minting and claiming run only through agents holding an Agent ID. This site stays read-only: no connect button, no browser mint, no custody. Prices and fees are confirmed inside the wallet, never advertised on the page. Supply figures for both the collection and the token are fixed in their contracts; no owner function can raise them.</p>
+  </section>
+
+  <section class="blk">
+    <p class="label">07 · Risks</p>
+    <h2>Read before you hold</h2>
+    <p>Zaplo is an experimental on-chain collectible. Smart contracts can contain undiscovered faults; $ZAP will be volatile once trading opens and may lose value entirely; agent wallets are new infrastructure and their failure modes are still being learned. Nothing in this document is financial advice or a promise of returns. Verify every address above on BscScan before interacting with it.</p>
+  </section>
+
+  <footer>
+    <p>ZAPLO · zaplo.nl · Whitepaper v1 · 3 November 2026 · Contracts verified on BscScan; states read from BNB Smart Chain.</p>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<title>ZAPLO — Roadmap · Mint, Claim, $ZAP Launch</title>
+<meta name="description" content="Zaplo roadmap: agent-only mint (live), holder claim of 500,000 $ZAP per cell (live), $ZAP launch on PancakeSwap on 8 November 2026, and a permanent close at sellout." />
+<link rel="canonical" href="https://zaplo.nl/roadmap/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0E0F'/%3E%3Cpath d='M18.5 3 8 18h6.2L12 29l11-16h-6.6z' fill='%23F2D024'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#0B0E0F;--ink2:#111617;--steel:#2B3436;--paper:#EFEFEA;--paper2:#d8d8d0;--ash:#8C9491;--volt:#F2D024;--live:#2FBF71}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--volt);color:var(--ink)}
+a{color:var(--volt)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:40;background:rgba(11,14,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--steel)}
+header.top .wrap{display:flex;align-items:center;gap:22px;height:60px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;letter-spacing:-.02em;color:var(--paper);text-decoration:none}
+.logo b{color:var(--volt)}
+nav.main{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+nav.main a{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);text-decoration:none}
+nav.main a:hover,nav.main a.on{color:var(--paper)}
+.label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--volt)}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.03em;font-size:clamp(46px,9vw,96px);margin:14px 0 18px}
+.lede{font-size:18px;color:var(--paper2);max-width:640px}
+.hero{padding:56px 0 8px}
+p{color:var(--paper2);max-width:720px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.phase{border:1px solid var(--steel);background:var(--ink2);padding:22px;margin:14px 0}
+.phase .row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px}
+.phase h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;text-transform:uppercase;font-size:24px;margin:6px 0 8px;letter-spacing:-.01em}
+.phase p{margin:0}
+.st{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;padding:4px 10px;border:1px solid var(--steel)}
+.st.live{color:var(--live);border-color:var(--live)}
+.st.next{color:var(--ink);background:var(--volt);border-color:var(--volt);font-weight:600}
+.st.soon{color:var(--ash)}
+.phase.next{border-color:var(--volt)}
+.btn{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:13px 22px;border:1px solid var(--paper);color:var(--paper);text-decoration:none;margin-top:10px}
+.btn:hover{background:var(--volt);border-color:var(--volt);color:var(--ink)}
+footer{border-top:1px solid var(--steel);padding:28px 0 90px;margin-top:30px}
+footer p{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ash);letter-spacing:.08em}
+@media(min-width:1024px){footer{padding-bottom:34px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">ZAPLO<b>.</b></a>
+    <nav class="main">
+      <a href="/#mint">Mint</a>
+      <a href="/#claim">Claim</a>
+      <a href="/roadmap/" class="on">Roadmap</a>
+      <a href="/whitepaper/">Whitepaper</a>
+      <a href="https://x.com/zaplonl" target="_blank" rel="noreferrer">X ↗</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <p class="label">Programme · Four phases</p>
+    <h1>Roadmap.</h1>
+    <p class="lede">Four phases, each one a contract state rather than a promise. A phase is marked live only when the chain says so, and this page is updated when states change.</p>
+  </div>
+
+  <div class="phase">
+    <div class="row"><span class="label">Phase 01 · Strike</span><span class="st live">Live</span></div>
+    <h3>Agent-only mint</h3>
+    <p>Mint opened on 30 October 2026 and is still running. 5,555 charge cells, free to mint, five per wallet at most, gated on-chain by Binance Agent ID. Minting happens only through Binance Agentic Wallet agents; there is no mint button on this site.</p>
+    <a class="btn" href="/#mint">Mint section</a>
+  </div>
+
+  <div class="phase">
+    <div class="row"><span class="label">Phase 02 · Holder claim</span><span class="st live">Live</span></div>
+    <h3>500,000 $ZAP per cell</h3>
+    <p>Holder claims opened on 2 November 2026. Every struck cell claims 500,000 $ZAP exactly once, following whoever holds the cell at claim time, with no deadline. Claims run through agents, like the mint.</p>
+    <a class="btn" href="/#claim">Claim section</a>
+  </div>
+
+  <div class="phase next">
+    <div class="row"><span class="label">Phase 03 · $ZAP launch</span><span class="st next">8 Nov 2026</span></div>
+    <h3>Trading opens on PancakeSwap</h3>
+    <p>$ZAP lists on PancakeSwap on 8 November 2026 at 00.00 UTC. Liquidity is seeded by the project at launch, and the pool address is published on the home page and on X at the moment trading opens. Until then, $ZAP reaches wallets only through holder claims.</p>
+    <a class="btn" href="/#launch">Launch countdown</a>
+  </div>
+
+  <div class="phase">
+    <div class="row"><span class="label">Phase 04 · Full rack</span><span class="st soon">At sellout</span></div>
+    <h3>Mint closes for good</h3>
+    <p>When the 5,555th cell is struck, minting closes permanently and supply is final. Claims continue without a deadline, struck cells keep trading hand to hand on Element, and the collection becomes a closed set: 5,555 cells, each with its claim history written on-chain.</p>
+    <a class="btn" href="https://element.market/collections/zaplo" target="_blank" rel="noreferrer">Collection on Element ↗</a>
+  </div>
+
+  <footer>
+    <p>ZAPLO · zaplo.nl · Roadmap v1 · 3 November 2026 · States read from BNB Smart Chain: mint live, claim live, launch scheduled.</p>
+  </footer>
+</main>
+</body>
+</html>

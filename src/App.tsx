@@ -1,11 +1,23 @@
 import Nav from "@/components/Nav";
 import Hero, { useHeroStats } from "@/components/Hero";
 import CellStrip from "@/components/CellStrip";
+import LaunchBand from "@/components/LaunchBand";
 import MintPanel from "@/components/MintPanel";
 import ClaimPanel from "@/components/ClaimPanel";
-import MarketPreview from "@/components/MarketPreview";
 import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
+
+function AnnouncementBar() {
+  return (
+    <a
+      href="/roadmap/"
+      className="mt-[64px] flex items-center justify-center gap-3 bg-volt px-4 py-2.5 text-center text-ink transition-colors hover:bg-paper"
+    >
+      <span className="label text-[11px] font-semibold">$ZAP launches on PancakeSwap · 8 November 2026</span>
+      <span className="label text-[11px] hidden sm:inline">Roadmap →</span>
+    </a>
+  );
+}
 
 export default function App() {
   const stats = useHeroStats();
@@ -13,11 +25,12 @@ export default function App() {
     <div className="min-h-screen bg-ink text-paper pb-[76px] lg:pb-0">
       <Nav />
       <main>
+        <AnnouncementBar />
         <Hero stats={stats} />
         <CellStrip minted={stats.minted} />
+        <LaunchBand stats={stats} />
         <MintPanel />
         <ClaimPanel />
-        <MarketPreview />
       </main>
       <Footer />
       <MobileNav />

@@ -24,9 +24,9 @@ const ITEMS = [
     ),
   },
   {
-    id: "guide",
-    label: "Guide",
-    href: "/guide/",
+    id: "roadmap",
+    label: "Roadmap",
+    href: "/roadmap/",
     icon: (
       <path d="M6.5 2H19a1 1 0 0 1 1 1v15.5a1 1 0 0 1-1 1H6.8A2.8 2.8 0 0 0 4 22V5A3 3 0 0 1 6.5 2zm0 2.2A.8.8 0 0 0 6 5v14.3c.3-.1.6-.2.9-.2H18V4H6.5z" fill="currentColor" />
     ),

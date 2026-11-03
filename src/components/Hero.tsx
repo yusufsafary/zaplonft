@@ -126,10 +126,10 @@ export function useHeroStats(): HeroStats {
 export default function Hero({ stats }: { stats: HeroStats }) {
   const { minted, open, claimed } = stats;
   return (
-    <section id="top" className="relative overflow-hidden pt-[64px]">
+    <section id="top" className="relative overflow-hidden">
       <ChargeField />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,14,15,0.55)_78%,rgba(11,14,15,0.92)_100%)]" />
-      <div className="relative mx-auto max-w-[1400px] px-4 md:px-8 pt-14 md:pt-24 pb-12 md:pb-16">
+      <div className="relative mx-auto max-w-[1400px] px-4 md:px-8 pt-10 md:pt-16 pb-10 md:pb-12">
         <p className="label text-volt mb-5">
           {CONFIG.network.name} · {CONFIG.contract.standard} · Agent ID only · Free mint
         </p>

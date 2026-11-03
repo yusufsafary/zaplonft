@@ -20,9 +20,9 @@ export const TICKER_ITEMS = [
 /* ------------------------------------------------------------------ */
 export const SECTIONS = [
   { id: "top", label: "00 / Index" },
+  { id: "launch", label: "Launch" },
   { id: "mint", label: "01 / Mint" },
   { id: "claim", label: "02 / Claim" },
-  { id: "market", label: "03 / Market" },
 ];
 
 /* ------------------------------------------------------------------ */

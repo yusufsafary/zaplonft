@@ -22,7 +22,8 @@ export default function Footer() {
             {SECTIONS.slice(1).map((s) => (
               <a key={s.id} href={`#${s.id}`} className="label text-[11px] text-ash hover:text-paper transition-colors">{s.label}</a>
             ))}
-            <a href="/guide/" className="label text-[11px] text-ash hover:text-paper transition-colors">Guide</a>
+            <a href="/roadmap/" className="label text-[11px] text-ash hover:text-paper transition-colors">Roadmap</a>
+            <a href="/whitepaper/" className="label text-[11px] text-ash hover:text-paper transition-colors">Whitepaper</a>
             <a href="/zaplo-skill.md" className="label text-[11px] text-ash hover:text-paper transition-colors">Mint skill file</a>
             <a href="/zaplo-claim-skill.md" className="label text-[11px] text-ash hover:text-paper transition-colors">Claim skill file</a>
           </nav>

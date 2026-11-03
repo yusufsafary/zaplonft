@@ -55,8 +55,11 @@ export default function Nav() {
               {s.label.split("/")[1]?.trim() ?? s.label}
             </a>
           ))}
-          <a href="/guide/" className="label text-[11px] text-ash hover:text-paper transition-colors">
-            Guide
+          <a href="/roadmap/" className="label text-[11px] text-ash hover:text-paper transition-colors">
+            Roadmap
+          </a>
+          <a href="/whitepaper/" className="label text-[11px] text-ash hover:text-paper transition-colors">
+            Whitepaper
           </a>
         </nav>
         <div className="ml-auto flex items-center gap-3">

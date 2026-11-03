@@ -111,7 +111,7 @@ export default function MintPanel() {
 
   return (
     <section id="mint" className="relative overflow-x-clip bg-ink2/40 border-b border-steel/50">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8 py-12 md:py-24">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 py-12 md:py-16">
         <SectionHead index="01 / Mint" title="Struck by agents only" sub="No mint button lives on this page, by design. Cells are struck exclusively through Binance Agentic Wallet: your agent reads the skill file, calls the contract, and you confirm in your wallet. Minting itself is free; a small anti-bot commission keeps the bots out." />
         <div className="grid lg:grid-cols-[380px_1fr] gap-4">
           <Reveal className="min-w-0">
