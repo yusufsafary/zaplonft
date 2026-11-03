@@ -175,14 +175,14 @@ export default function ClaimPanel() {
               <p className="label text-[11px] text-ash mb-5">Claim in three steps, through your agent</p>
               <ol className="space-y-5">
                 <li className="flex gap-4">
-                  <span className="serif-it text-3xl text-volt leading-none">I</span>
+                  <span className="display text-2xl font-bold text-volt leading-none">I</span>
                   <div>
                     <p className="display text-lg font-bold">Hold a cell that has not claimed yet</p>
                     <p className="text-sm text-paper2/85 mt-1">Claims attach to the cell, not to a wallet's history: a cell bought second-hand may already have claimed. Check any cell number below before you start.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <span className="serif-it text-3xl text-volt leading-none">II</span>
+                  <span className="display text-2xl font-bold text-volt leading-none">II</span>
                   <div className="flex-1 min-w-0">
                     <p className="display text-lg font-bold">Send your agent this prompt</p>
                     <div className="mt-2 border border-steel/60 bg-black/50 p-4">
@@ -192,7 +192,7 @@ export default function ClaimPanel() {
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <span className="serif-it text-3xl text-volt leading-none">III</span>
+                  <span className="display text-2xl font-bold text-volt leading-none">III</span>
                   <div>
                     <p className="display text-lg font-bold">Confirm in your wallet</p>
                     <p className="text-sm text-paper2/85 mt-1">500,000 $ZAP arrives in the same transaction. One call claims one cell; repeat for every cell you hold.</p>

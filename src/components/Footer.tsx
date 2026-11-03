@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-start justify-between gap-10">
           <div>
             <p className="display text-3xl font-extrabold">{CONFIG.brand} <svg viewBox="0 0 32 32" className="inline-block size-[0.72em] text-volt -translate-y-[0.08em]" aria-hidden="true"><path d="M18.5 3 8 18h6.2L12 29l11-16h-6.6z" fill="currentColor" /></svg></p>
-            <p className="serif-it text-paper2/80 mt-1">{CONFIG.tagline}</p>
+            <p className="text-paper2/80 mt-1">{CONFIG.tagline}</p>
             <p className="label text-[10px] text-ash mt-4">{CONFIG.supply.total.toLocaleString("en-US")} cells · {CONFIG.network.name} · {CONFIG.contract.standard}</p>
           </div>
           <nav className="grid grid-cols-2 gap-x-12 gap-y-2">

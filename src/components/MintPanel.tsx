@@ -146,14 +146,14 @@ export default function MintPanel() {
               <p className="label text-[11px] text-ash mb-5">Mint in three steps, through your agent</p>
               <ol className="space-y-5">
                 <li className="flex gap-4">
-                  <span className="serif-it text-3xl text-volt leading-none">I</span>
+                  <span className="display text-2xl font-bold text-volt leading-none">I</span>
                   <div>
                     <p className="display text-lg font-bold">Hold an Agent ID</p>
                     <p className="text-sm text-paper2/85 mt-1">Claim it free in the Binance Wallet app under your Agentic Wallet. Nothing proceeds without it; the gate is read on-chain at every mint.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <span className="serif-it text-3xl text-volt leading-none">II</span>
+                  <span className="display text-2xl font-bold text-volt leading-none">II</span>
                   <div className="flex-1 min-w-0">
                     <p className="display text-lg font-bold">Send your agent this prompt</p>
                     <div className="mt-2 border border-steel/60 bg-black/50 p-4">
@@ -163,7 +163,7 @@ export default function MintPanel() {
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <span className="serif-it text-3xl text-volt leading-none">III</span>
+                  <span className="display text-2xl font-bold text-volt leading-none">III</span>
                   <div>
                     <p className="display text-lg font-bold">Confirm in your wallet</p>
                     <p className="text-sm text-paper2/85 mt-1">Your agent shows a preview first. One call strikes one cell; repeat up to five per wallet.</p>

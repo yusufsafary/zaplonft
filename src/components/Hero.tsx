@@ -1,173 +1,99 @@
-import { useEffect, useRef, useState } from "react";
-import { CONFIG } from "@/config";
-import { readContract, SEL, SEL_CLAIM } from "@/lib/read";
+import { useEffect, useState } from "react";
 import { num } from "@/lib/format";
+import { readContract, SEL, SEL_CLAIM } from "@/lib/read";
+import { Reveal } from "./Reveal";
 
-/**
- * ChargeField — kanvas grid sel baterai di belakang wordmark.
- * Setiap sel terisi volt mengikuti gelombang; sesekali satu sel "menyambar".
- * Diam saat di luar layar, statis bila prefers-reduced-motion.
- */
-function ChargeField() {
-  const ref = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const cv = ref.current;
-    if (!cv) return;
-    const ctx = cv.getContext("2d");
-    if (!ctx) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let raf = 0;
-    let running = true;
-    let W = 0;
-    let H = 0;
-    const DPR = Math.min(1.5, window.devicePixelRatio || 1);
-
-    const resize = () => {
-      const r = cv.getBoundingClientRect();
-      W = r.width;
-      H = r.height;
-      cv.width = Math.max(1, Math.floor(W * DPR));
-      cv.height = Math.max(1, Math.floor(H * DPR));
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const draw = (t: number) => {
-      ctx.clearRect(0, 0, W, H);
-      const cell = 54;
-      const gap = 10;
-      const cols = Math.ceil(W / (cell + gap)) + 1;
-      const rows = Math.ceil(H / (cell * 1.42 + gap)) + 1;
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const px = x * (cell + gap);
-          const py = y * (cell * 1.42 + gap);
-          const ph = Math.sin(t / 1600 + x * 0.55 + y * 0.9) * 0.5 + 0.5;
-          const ph2 = Math.sin(t / 2600 - x * 0.3 + y * 0.5) * 0.5 + 0.5;
-          const charge = Math.max(0, Math.min(1, ph * 0.65 + ph2 * 0.45 - 0.12));
-          const h = cell * 1.42;
-          ctx.strokeStyle = "rgba(140,148,145,0.20)";
-          ctx.lineWidth = 1;
-          ctx.strokeRect(px + 0.5, py + 0.5, cell - 1, h - 1);
-          if (charge > 0.03) {
-            const fh = (h - 8) * charge;
-            ctx.fillStyle = `rgba(242,208,36,${0.05 + charge * 0.16})`;
-            ctx.fillRect(px + 4, py + h - 4 - fh, cell - 8, fh);
-          }
-          const strike = Math.sin(t / 700 + x * 12.9898 + y * 78.233) > 0.9985;
-          if (strike) {
-            ctx.fillStyle = "rgba(242,208,36,0.85)";
-            ctx.fillRect(px + cell / 2 - 1, py + 6, 2, h - 12);
-          }
-        }
-      }
-    };
-
-    if (reduced) {
-      draw(1200);
-    } else {
-      const loop = (t: number) => {
-        if (running) draw(t);
-        raf = requestAnimationFrame(loop);
-      };
-      raf = requestAnimationFrame(loop);
-      const io = new IntersectionObserver(
-        (es) => es.forEach((e) => (running = e.isIntersecting)),
-        { threshold: 0 },
-      );
-      io.observe(cv);
-      return () => {
-        cancelAnimationFrame(raf);
-        io.disconnect();
-        window.removeEventListener("resize", resize);
-      };
-    }
-    return () => window.removeEventListener("resize", resize);
-  }, []);
-
-  return <canvas ref={ref} className="absolute inset-0 h-full w-full" aria-hidden="true" />;
-}
-
-export type HeroStats = {
-  minted: number | null;
-  open: boolean | null;
-  claimed: number | null;
-};
+export type HeroStats = { minted: number | null; claimed: number | null; mintOpen: boolean | null; claimOpen: boolean | null };
 
 export function useHeroStats(): HeroStats {
-  const [stats, setStats] = useState<HeroStats>({ minted: null, open: null, claimed: null });
+  const [stats, setStats] = useState<HeroStats>({ minted: null, claimed: null, mintOpen: null, claimOpen: null });
   useEffect(() => {
-    let stop = false;
-    const tick = async () => {
-      const [m, o, c] = await Promise.all([
-        readContract(CONFIG.contract.address, SEL.totalMinted),
-        readContract(CONFIG.contract.address, SEL.mintOpen),
-        readContract(CONFIG.claim.address, SEL_CLAIM.totalClaimed),
-      ]);
-      if (stop) return;
+    let alive = true;
+    const load = async () => {
+      const [m, o] = await Promise.all([readContract("nft", SEL.totalMinted), readContract("nft", SEL.mintOpen)]);
+      const [c, co] = await Promise.all([readContract("claim", SEL_CLAIM.totalClaimed), readContract("claim", SEL_CLAIM.claimOpen)]);
+      if (!alive) return;
       setStats({
         minted: m !== null ? Number(m) : null,
-        open: o !== null ? o > 0n : null,
         claimed: c !== null ? Number(c) : null,
+        mintOpen: o !== null ? o === 1n : null,
+        claimOpen: co !== null ? co === 1n : null,
       });
     };
-    tick();
-    const id = window.setInterval(tick, 30000);
+    load();
+    const t = setInterval(load, 30000);
     return () => {
-      stop = true;
-      window.clearInterval(id);
+      alive = false;
+      clearInterval(t);
     };
   }, []);
   return stats;
 }
 
-export default function Hero({ stats }: { stats: HeroStats }) {
-  const { minted, open, claimed } = stats;
+function StatCell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <ChargeField />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,14,15,0.55)_78%,rgba(11,14,15,0.92)_100%)]" />
-      <div className="relative mx-auto max-w-[1400px] px-4 md:px-8 pt-10 md:pt-16 pb-10 md:pb-12">
-        <p className="label text-volt mb-5">
-          {CONFIG.network.name} · {CONFIG.contract.standard} · Agent ID only · Free mint
-        </p>
-        <h1 className="display font-extrabold uppercase leading-[0.84] tracking-tight text-[21vw] lg:text-[12.5rem]">
-          Zaplo<span className="text-volt">.</span>
-        </h1>
-        <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-end">
-          <div>
-            <p className="serif-it text-2xl md:text-3xl text-paper">{CONFIG.tagline}</p>
-            <p className="mt-4 text-base md:text-lg text-paper2/85 max-w-xl">
-              5,555 charge cells on BNB Smart Chain, struck only by Binance Agentic
-              Wallets holding an Agent ID. Minting is free, five cells at most per
-              wallet, and every cell carries a claim of 500,000 $ZAP. Agents do the
-              work; this page only reads the chain.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3 pointer-events-auto">
-              <a href="#mint" className="btn btn-solid"><span>Mint as an agent</span></a>
-              <a href="#claim" className="btn btn-ghost"><span>Claim $ZAP</span></a>
+    <div className="px-4 py-4 md:px-6 md:py-5">
+      <p className="label text-[10px] text-ash">{label}</p>
+      <p className="mono tnum mt-2 text-lg md:text-2xl font-medium text-paper">{children}</p>
+    </div>
+  );
+}
+
+export default function Hero({ stats }: { stats: HeroStats }) {
+  const { minted, claimed, mintOpen } = stats;
+  return (
+    <section id="top" className="relative border-b border-steel/50">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-8 pt-12 md:pt-20 pb-12 md:pb-16">
+        <Reveal>
+          <p className="label text-volt">BNB Smart Chain · Agent ID only · Free mint</p>
+          <h1 className="display mt-5 font-extrabold uppercase leading-[0.88] text-[19vw] lg:text-[11rem]">
+            Zaplo<span className="text-volt">.</span>
+          </h1>
+        </Reveal>
+        <Reveal delay={80}>
+          <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-end">
+            <div>
+              <p className="display text-2xl md:text-[2rem] font-bold normal-case leading-tight">
+                Five charges per agent.
+              </p>
+              <p className="mt-4 max-w-xl text-paper2/85 text-base md:text-lg leading-relaxed">
+                5,555 charge cells on BNB Smart Chain, struck only by Binance Agentic
+                Wallets holding an Agent ID. Minting is free, five cells at most per
+                wallet, and every cell carries a claim of 500,000 $ZAP. Agents do the
+                work; this page only reads the chain.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href="#mint" className="label inline-block bg-volt px-6 py-3.5 !text-ink font-semibold transition-colors hover:bg-paper">
+                  Mint as an agent
+                </a>
+                <a href="#claim" className="label inline-block border border-paper/60 px-6 py-3.5 transition-colors hover:border-volt hover:text-volt">
+                  Claim $ZAP
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 divide-x divide-steel/60 border border-steel/60">
+              <StatCell label="Struck">
+                {minted !== null ? num(minted) : "—"}
+                <span className="text-ash text-sm md:text-base"> / 5,555</span>
+              </StatCell>
+              <StatCell label="Claimed">
+                {claimed !== null ? num(claimed) : "—"}
+                <span className="text-ash text-sm md:text-base"> cells</span>
+              </StatCell>
+              <StatCell label="Status">
+                {mintOpen === null ? (
+                  "Syncing"
+                ) : mintOpen ? (
+                  <span className="inline-flex items-center gap-2">
+                    <span className="inline-block h-2 w-2 rounded-full bg-live animate-pulse" /> Mint live
+                  </span>
+                ) : (
+                  "Mint paused"
+                )}
+              </StatCell>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2.5 lg:justify-end">
-            <span className="border border-steel/70 bg-ink/80 px-3.5 py-2 mono text-[12px] tnum">
-              STRUCK <b className="text-volt font-semibold">{minted !== null ? num(minted) : "—"}</b>
-              <span className="text-ash"> / {num(CONFIG.supply.total)}</span>
-            </span>
-            <span className="border border-steel/70 bg-ink/80 px-3.5 py-2 mono text-[12px] tnum">
-              CLAIMED <b className="text-volt font-semibold">{claimed !== null ? num(claimed) : "—"}</b>
-              <span className="text-ash"> CELLS</span>
-            </span>
-            <span className="border border-steel/70 bg-ink/80 px-3.5 py-2 mono text-[12px] inline-flex items-center gap-2">
-              <span
-                className="pulse-dot relative inline-block size-2 rounded-full"
-                style={{ background: open === null ? "var(--color-ash)" : open ? "var(--color-live)" : "var(--color-volt)", color: open ? "var(--color-live)" : "var(--color-ash)" }}
-              />
-              {open === null ? "SYNCING" : open ? "MINT LIVE" : "MINT PAUSED"}
-            </span>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
