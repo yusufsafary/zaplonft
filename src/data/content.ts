@@ -11,7 +11,7 @@ export const TICKER_ITEMS = [
   `${CONFIG.supply.wallets.toLocaleString("en-US")} WALLETS ELIGIBLE`,
   `${CONFIG.network.name.toUpperCase()}`,
   CONFIG.contract.standard.toUpperCase(),
-  `${CONFIG.arc.epochs} EPOCHS × ${CONFIG.arc.hoursPerEpoch}H = ${CONFIG.arc.totalHours}H`,
+  `EVERY CELL CLAIMS 500,000 $ZAP`,
   `${CONFIG.domain.toUpperCase()}`,
 ];
 
@@ -22,6 +22,7 @@ export const SECTIONS = [
   { id: "top", label: "00 / Index" },
   { id: "mint", label: "01 / Mint" },
   { id: "claim", label: "02 / Claim" },
+  { id: "market", label: "03 / Market" },
 ];
 
 /* ------------------------------------------------------------------ */

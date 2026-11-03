@@ -20,7 +20,7 @@ export const CONFIG = {
   domain: "zaplo.nl",
   repo: "https://github.com/yusufsafary/zaplonft",
   tagline: "Five charges per agent.",
-  lede: "5,555 charge cells on BNB Smart Chain. Free mint, exclusively through Binance Agentic Wallet — your agent mints, this page never touches your keys. A maximum of five cells per wallet, because one agent needs a full rack, not a single bolt.",
+  lede: "5,555 charge cells on BNB Smart Chain. Free mint, exclusively through Binance Agentic Wallet: your agent mints, this page never touches your keys. Five cells at most per wallet, and every cell claims 500,000 $ZAP.",
 
   /* ---------------- ekonomi koleksi ---------------- */
   supply: {
