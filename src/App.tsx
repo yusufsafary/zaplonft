@@ -12,7 +12,7 @@ function AnnouncementBar() {
       href="/roadmap/"
       className="mt-[64px] flex items-center justify-center gap-3 bg-volt px-4 py-2 text-center text-ink transition-colors hover:bg-paper"
     >
-      <span className="label text-[11px] font-semibold">$ZAP launches on PancakeSwap · 8 November 2026</span>
+      <span className="label text-[11px] font-semibold">$ZAP is not trading yet · PancakeSwap launch date to be announced</span>
       <span className="label text-[11px] hidden sm:inline">Roadmap →</span>
     </a>
   );
