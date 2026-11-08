@@ -3,8 +3,23 @@ import Hero, { useHeroStats } from "@/components/Hero";
 import LaunchBand from "@/components/LaunchBand";
 import MintPanel from "@/components/MintPanel";
 import ClaimPanel from "@/components/ClaimPanel";
+import Verified from "@/components/Verified";
 import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
+
+/** Latar premium: grid hidup, cahaya volt melayang, sapuan cahaya, grain halus. */
+function Backdrop() {
+  return (
+    <div className="bg-scene" aria-hidden="true">
+      <div className="bg-grid-pan" />
+      <div className="bg-orb bg-orb-volt" />
+      <div className="bg-orb bg-orb-deep" />
+      <div className="bg-orb bg-orb-low" />
+      <div className="bg-sheen" />
+      <div className="bg-grain" />
+    </div>
+  );
+}
 
 function AnnouncementBar() {
   return (
@@ -21,17 +36,21 @@ function AnnouncementBar() {
 export default function App() {
   const stats = useHeroStats();
   return (
-    <div className="min-h-screen bg-ink text-paper pb-[76px] lg:pb-0">
-      <Nav />
-      <main>
-        <AnnouncementBar />
-        <Hero stats={stats} />
-        <LaunchBand />
-        <MintPanel />
-        <ClaimPanel />
-      </main>
-      <Footer />
-      <MobileNav />
+    <div className="relative min-h-screen bg-ink text-paper pb-[76px] lg:pb-0">
+      <Backdrop />
+      <div className="relative z-10">
+        <Nav />
+        <main>
+          <AnnouncementBar />
+          <Hero stats={stats} />
+          <LaunchBand />
+          <MintPanel />
+          <ClaimPanel />
+          <Verified />
+        </main>
+        <Footer />
+        <MobileNav />
+      </div>
     </div>
   );
 }

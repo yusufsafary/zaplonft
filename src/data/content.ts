@@ -23,6 +23,7 @@ export const SECTIONS = [
   { id: "launch", label: "Launch" },
   { id: "mint", label: "01 / Mint" },
   { id: "claim", label: "02 / Claim" },
+  { id: "verified", label: "03 / Verified" },
 ];
 
 /* ------------------------------------------------------------------ */

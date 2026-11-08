@@ -64,8 +64,8 @@ export default function Hero({ stats }: { stats: HeroStats }) {
         <Reveal delay={80}>
           <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:items-end">
             <div>
-              <p className="display text-2xl md:text-[2rem] font-bold normal-case leading-tight">
-                Five charges per agent.
+              <p className="display text-3xl md:text-4xl font-bold normal-case leading-tight">
+                Five charges <span className="serif-it text-volt text-[1.22em]">per agent.</span>
               </p>
               <p className="mt-4 max-w-xl text-paper2/85 text-base md:text-lg leading-relaxed">
                 5,555 charge cells on BNB Smart Chain, struck only by Binance Agentic
@@ -82,7 +82,7 @@ export default function Hero({ stats }: { stats: HeroStats }) {
                 </a>
               </div>
             </div>
-            <div className="grid grid-cols-3 divide-x divide-steel/60 border border-steel/60">
+            <div className="grid grid-cols-3 divide-x divide-steel/50 border-y border-steel/50">
               <StatCell label="Struck">
                 {minted !== null ? num(minted) : "—"}
                 <span className="text-ash text-sm md:text-base"> / 5,555</span>

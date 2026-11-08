@@ -28,7 +28,7 @@ export default function Footer() {
             <a href="/zaplo-claim-skill.md" className="label text-[11px] text-ash hover:text-paper transition-colors">Claim skill file</a>
           </nav>
           <div className="flex flex-col gap-2">
-            <p className="label text-[10px] text-ash mb-1">Contracts · BscScan</p>
+            <p className="label text-[10px] text-ash mb-1">Contracts · Verified</p>
             {CONTRACTS.map((c) => (
               <a
                 key={c.addr}
@@ -40,6 +40,7 @@ export default function Footer() {
                 {c.label} · {shortAddress(c.addr, 8, 6)} ↗
               </a>
             ))}
+            <p className="label text-[10px] text-volt/90 mt-2">All contracts verified · Sourcify exact match</p>
             <a className="label text-[11px] text-ash hover:text-volt transition-colors mt-3" href={CONFIG.links.x} target="_blank" rel="noreferrer">X · @zaplonl ↗</a>
           </div>
         </div>

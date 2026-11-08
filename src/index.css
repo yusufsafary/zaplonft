@@ -16,7 +16,7 @@
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-serif: "Archivo", "Helvetica Neue", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 }
 
 html {
@@ -65,15 +65,16 @@ footer[id] {
 .display {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 0.92;
-  font-stretch: 116%;
+  font-stretch: 118%;
 }
 .serif-it {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .label {
   font-family: var(--font-mono);
@@ -111,6 +112,130 @@ footer[id] {
 
 .hairline-t {
   border-top: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+}
+
+/* ---------- latar premium: cahaya volt melayang + grid hidup ---------- */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #131a1b 0%, var(--color-ink) 55%);
+}
+.bg-grid-pan {
+  position: absolute;
+  inset: -64px;
+  background-image: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-paper) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-paper) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  animation: zap-grid-pan 26s linear infinite;
+  mask-image: radial-gradient(90% 70% at 50% 30%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(90% 70% at 50% 30%, black 30%, transparent 100%);
+}
+@keyframes zap-grid-pan {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(64px, 64px, 0);
+  }
+}
+.bg-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  will-change: transform, opacity;
+}
+.bg-orb-volt {
+  width: 56vw;
+  height: 56vw;
+  left: -14vw;
+  top: -18vw;
+  background: radial-gradient(circle, rgba(242, 208, 36, 0.16) 0%, transparent 65%);
+  animation: zap-drift-a 46s ease-in-out infinite alternate;
+}
+.bg-orb-deep {
+  width: 48vw;
+  height: 48vw;
+  right: -12vw;
+  top: 34vh;
+  background: radial-gradient(circle, rgba(242, 208, 36, 0.08) 0%, transparent 65%);
+  animation: zap-drift-b 62s ease-in-out infinite alternate;
+}
+.bg-orb-low {
+  width: 60vw;
+  height: 60vw;
+  left: 18vw;
+  bottom: -30vw;
+  background: radial-gradient(circle, rgba(120, 140, 120, 0.1) 0%, transparent 65%);
+  animation: zap-drift-a 74s ease-in-out infinite alternate-reverse;
+}
+@keyframes zap-drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(7vw, 5vh, 0) scale(1.14);
+  }
+}
+@keyframes zap-drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+  to {
+    transform: translate3d(-6vw, -6vh, 0) scale(0.96);
+  }
+}
+.bg-sheen {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  width: 34vw;
+  left: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(239, 239, 234, 0.045) 45%,
+    rgba(242, 208, 36, 0.05) 55%,
+    transparent 100%
+  );
+  transform: translateX(-45vw) skewX(-8deg);
+  animation: zap-sheen 24s ease-in-out infinite;
+}
+@keyframes zap-sheen {
+  0%,
+  55% {
+    transform: translateX(-45vw) skewX(-8deg);
+  }
+  85%,
+  100% {
+    transform: translateX(135vw) skewX(-8deg);
+  }
+}
+.bg-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+.lux-rule {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-volt) 55%, transparent),
+    transparent
+  );
 }
 
 /* ---------- reveal ---------- */
