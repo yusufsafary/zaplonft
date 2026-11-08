@@ -24,6 +24,14 @@ const ITEMS = [
     ),
   },
   {
+    id: "market",
+    label: "Market",
+    href: "/market/",
+    icon: (
+      <path d="M21.4 11.6 12.4 2.6A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7c0 .5.2 1 .6 1.4l9 9a2 2 0 0 0 2.8 0l7-7a2 2 0 0 0 0-2.8zM6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8z" fill="currentColor" />
+    ),
+  },
+  {
     id: "roadmap",
     label: "Roadmap",
     href: "/roadmap/",
@@ -42,7 +50,7 @@ export default function MobileNav() {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       aria-label="Mobile"
     >
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-5">
         {ITEMS.map((it) => (
           <a
             key={it.id}

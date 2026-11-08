@@ -61,6 +61,9 @@ export default function Nav() {
           <a href="/whitepaper/" className="label text-[11px] text-ash hover:text-paper transition-colors">
             Whitepaper
           </a>
+          <a href="/market/" className="label text-[11px] text-volt hover:text-paper transition-colors">
+            Market
+          </a>
         </nav>
         <div className="ml-auto flex items-center gap-3">
           <a href={CONFIG.links.x} target="_blank" rel="noreferrer" aria-label="ZAPLO on X: @zaplonl" className="text-ash hover:text-paper transition-colors">

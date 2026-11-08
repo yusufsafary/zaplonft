@@ -6,6 +6,7 @@ const ROWS = [
   { name: "Zaplo Pass", kind: "NFT · ZaploAgenticPass", addr: CONFIG.contract.address, bscscan: true },
   { name: "$ZAP", kind: "Token · ZAPToken", addr: CONFIG.claim.token.address, bscscan: false },
   { name: "Zaplo Claim", kind: "Claim · ZaploClaim", addr: CONFIG.claim.address, bscscan: false },
+  { name: "Zaplo Market", kind: "Market · ZaploMarket", addr: "0x4F6542b61D77C9140fD8189Bf2fAB87cA2a386Aa", bscscan: false },
 ];
 
 function Chip({ children, strong = false }: { children: React.ReactNode; strong?: boolean }) {

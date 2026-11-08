@@ -6,6 +6,7 @@ const CONTRACTS = [
   { label: "NFT · ZaploAgenticPass", addr: CONFIG.contract.address },
   { label: "$ZAP token", addr: CONFIG.claim.token.address },
   { label: "Claim · ZaploClaim", addr: CONFIG.claim.address },
+  { label: "Market · ZaploMarket", addr: "0x4F6542b61D77C9140fD8189Bf2fAB87cA2a386Aa" },
 ];
 
 export default function Footer() {
@@ -24,6 +25,7 @@ export default function Footer() {
             ))}
             <a href="/roadmap/" className="label text-[11px] text-ash hover:text-paper transition-colors">Roadmap</a>
             <a href="/whitepaper/" className="label text-[11px] text-ash hover:text-paper transition-colors">Whitepaper</a>
+            <a href="/market/" className="label text-[11px] text-ash hover:text-paper transition-colors">Market</a>
             <a href="/zaplo-skill.md" className="label text-[11px] text-ash hover:text-paper transition-colors">Mint skill file</a>
             <a href="/zaplo-claim-skill.md" className="label text-[11px] text-ash hover:text-paper transition-colors">Claim skill file</a>
           </nav>
