@@ -1,6 +1,6 @@
 import { Reveal } from "./Reveal";
 
-/** $ZAP belum live di PancakeSwap; tanggal peluncuran baru diumumkan terpisah (perintah Yusup 2026-11-08). */
+/** $ZAP launch 18 November di PancakeSwap; $ZAP yang tidak diklaim dibakar saat launch (perintah Yusup 2026-11-13). */
 export default function LaunchBand() {
   return (
     <section id="launch" className="border-b border-steel/50">
@@ -8,16 +8,17 @@ export default function LaunchBand() {
         <Reveal>
           <p className="label text-volt mb-3">Launch · PancakeSwap</p>
           <h2 className="display text-3xl md:text-5xl font-extrabold uppercase leading-[0.95]">
-            $ZAP is <span className="serif-it normal-case text-volt text-[1.15em]">not live</span> yet.
+            $ZAP launches <span className="serif-it normal-case text-volt text-[1.15em]">18 November</span>.
           </h2>
           <p className="mt-4 max-w-2xl text-paper2/85 text-base md:text-lg leading-relaxed">
-            $ZAP does not trade anywhere yet. A new PancakeSwap launch date will be
-            announced here and on X first, and the pool address is published at that
-            moment. Until then $ZAP moves only one way: from the claim pool to
+            The pool opens on PancakeSwap on 18 November, and the pool address is
+            published at that moment. Claim before launch: every Pass still
+            unclaimed when the pool opens loses its 500,000 $ZAP, and that $ZAP
+            is burned. Until then $ZAP moves only one way: from the claim pool to
             holders, 500,000 at a time.
           </p>
           <p className="label text-[11px] text-volt mt-7">
-            Not on PancakeSwap yet · New launch date to be announced
+            PancakeSwap · 18 November · Unclaimed $ZAP burns at launch
           </p>
         </Reveal>
       </div>
